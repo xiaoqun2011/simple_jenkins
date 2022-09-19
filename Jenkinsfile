@@ -27,9 +27,15 @@ pipeline {
                 echo "Testing the app..."
             }
         }
-        stage("Deploy") {
+        stage("Deploy to Staging") {
             steps {
-                echo "Deploying the app..."
+                sh './deploy staging'
+                sh './smoke-tests'
+            }
+        }
+        stage("Deploy to Production") {
+            steps {
+                sh './deploy prod'
             }
         }
     }

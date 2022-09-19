@@ -25,6 +25,7 @@ pipeline {
         stage("Test") {
             steps {
                 echo "Testing the app..."
+                junit "build/reports/**/*.xml"
             }
         }
         stage("Deploy") {

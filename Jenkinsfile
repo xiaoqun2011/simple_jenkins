@@ -46,6 +46,9 @@ pipeline {
         }
         failure {
             echo "This will run if the job failed"
+            emailext to: "ezzeddin.tester@gmail.com"
+                subject: "Failed pipeline: ${currentBuild.fullDisplayName}"
+                body: "Reporting failed runs from Project Phoenix with ${env.BUILD_URL}"
         }
         unstable {
             echo "This will run if the completion status was 'unstable', usually by test failures"

@@ -46,7 +46,7 @@ pipeline {
         }
         failure {
             echo "This will run if the job failed"
-            emailext to: "ezzeddin.tester@gmail.com",
+            emailext to: "ezzeddin.tester@gmail.com"
         }
         unstable {
             echo "This will run if the completion status was 'unstable', usually by test failures"

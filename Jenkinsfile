@@ -18,7 +18,7 @@ pipeline {
                     echo "Database url is: ${DB_URL}"
                     echo "DISABLE_AUTH is ${DISABLE_AUTH}"
                     env
-                '''
+                ''
                 echo "Running a job with build #: ${env.BUILD_NUMBER} on ${env.JENKINS_URL}"
             }
         }

@@ -4,7 +4,7 @@ pipeline {
         DB_URL = 'mysql+pymysql://usr:pwd@host:<port>/db'
         DISABLE_AUTH = true
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-access-secret-key2')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-access-secret-key')
     }
     stages {
         stage("Build") {
@@ -47,8 +47,8 @@ pipeline {
         failure {
             echo "This will run if the job failed"
             mail to: "ezzeddin.tester@gmail.com",
-                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} has failed",
-                     body: "For more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
+                 subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} has failed",
+                 body: "For more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
         }
         unstable {
             echo "This will run if the completion status was 'unstable', usually by test failures"

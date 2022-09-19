@@ -4,7 +4,7 @@ pipeline {
         DB_URL = 'mysql+pymysql://usr:pwd@host:<port>/db'
         DISABLE_AUTH = true
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-access-secret-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-access-secret-key2')
     }
     stages {
         stage("Build") {
@@ -18,7 +18,7 @@ pipeline {
                     echo "Database url is: ${DB_URL}"
                     echo "DISABLE_AUTH is ${DISABLE_AUTH}"
                     env
-                ''
+                '''
                 echo "Running a job with build #: ${env.BUILD_NUMBER} on ${env.JENKINS_URL}"
             }
         }

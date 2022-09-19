@@ -46,7 +46,7 @@ pipeline {
         }
         failure {
             echo "This will run if the job failed"
-            mail to: "ezzeddin.tester@gmail.com",
+            mail to: "ezz.email@gmail.com",
                  subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} has failed",
                  body: "For more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
         }

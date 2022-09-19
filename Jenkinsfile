@@ -34,6 +34,11 @@ pipeline {
                 sh './smoke-tests'
             }
         }
+        stage("Sanity Check") {
+            step {
+                input "Should we ship to prod?"
+            }
+        }
         stage("Deploy to Production") {
             steps {
                 sh './deploy prod'

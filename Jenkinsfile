@@ -37,6 +37,8 @@ pipeline {
         always {
             echo "This will always run regardless of the completion status"
             junit allowEmptyResults: true, testResults: "build/reports/**/*.xml"
+        }
+        cleanup {
             echo "Cleaning the workspace"
             cleanWs()
         }

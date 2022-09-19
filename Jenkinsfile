@@ -29,6 +29,7 @@ pipeline {
         }
         stage("Deploy to Staging") {
             steps {
+                sh 'chmod u+x deploy'
                 sh './deploy staging'
                 sh './smoke-tests'
             }

@@ -36,7 +36,7 @@ pipeline {
     post {
         always {
             echo "This will always run regardless of the completion status"
-            junit "build/reports/**/*.xml"
+            junit allowEmptyResults: true, testResults: "build/reports/**/*.xml"
         }
         success {
             echo "This will run if the build succeeded"

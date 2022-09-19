@@ -35,7 +35,7 @@ pipeline {
             }
         }
         stage("Sanity Check") {
-            step {
+            steps {
                 input "Should we ship to prod?"
             }
         }

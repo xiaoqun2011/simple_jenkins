@@ -46,7 +46,11 @@ pipeline {
         }
         failure {
             echo "This will run if the job failed"
-            emailext to: "ezzeddin.tester@gmail.com"
+            emailext to: "ezzeddin.tester@gmail.com",
+                     subject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!",
+                     body: """
+                     $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+                     Check console output at $BUILD_URL to view the results."""
         }
         unstable {
             echo "This will run if the completion status was 'unstable', usually by test failures"

@@ -25,7 +25,6 @@ pipeline {
         stage("Test") {
             steps {
                 echo "Testing the app..."
-                junit "build/reports/**/*.xml"
             }
         }
         stage("Deploy") {
@@ -37,6 +36,7 @@ pipeline {
     post {
         always {
             echo "This will always run regardless of the completion status"
+            junit "build/reports/**/*.xml"
         }
         success {
             echo "This will run if the build succeeded"

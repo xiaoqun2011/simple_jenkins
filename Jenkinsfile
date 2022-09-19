@@ -37,6 +37,10 @@ pipeline {
         always {
             echo "This will always run regardless of the completion status"
             junit allowEmptyResults: true, testResults: "build/reports/**/*.xml"
+            sh '''
+                echo "Cleaning the workspace"
+                cleanWs()
+            '''
         }
         success {
             echo "This will run if the build succeeded"
